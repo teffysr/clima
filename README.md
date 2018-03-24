@@ -1,0 +1,2 @@
+# clima
+calculos bayesianos
