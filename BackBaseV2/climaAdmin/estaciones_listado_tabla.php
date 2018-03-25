@@ -1,8 +1,8 @@
 <table class="table table-nomargin table-bordered dataTable table-striped table-hover dataTable-tools dataTable-nofooter dataTable-nofooterhack">
 	<thead>
 		<tr>
-			<th>Nombre</th>
-			<th>Datos</th>
+			<th width="25%">Nombre</th>
+			<th width="75%">Datos</th>
 			<!--<th width="5%">Activo</th>
 			<th width="5%">Destacado</th>
 			<th class="ordenPryTH">#</th>

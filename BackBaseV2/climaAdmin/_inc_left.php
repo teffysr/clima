@@ -14,6 +14,11 @@
 				<a href="estaciones_listado.php"><i class="icon-file icon-white"></i><span>Estaciones</span></a>
 			</li>
 		<? } ?>
+		<? if (tiene_permiso('Porcentajes')) { ?>
+			<li>
+				<a href="porcentajes_listado.php"><i class="icon-file icon-white"></i><span>Porcentajes</span></a>
+			</li>
+		<? } ?>
 		<? if (tiene_permiso('Categorias') || tiene_permiso('Productos')) { ?>
 			<li>
 				<a href="#"><i class="icon-gift icon-white"></i><span>Productos</span></a>
