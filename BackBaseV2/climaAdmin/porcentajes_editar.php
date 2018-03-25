@@ -40,6 +40,20 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 <html>
 <head>
 	<? include_once("_inc_head.php");?>
+	<!-- small charts plugin -->
+	<!-- CSS for Growl like notifications -->
+	<link rel="stylesheet" href="css/jquery.gritter.css">
+<!-- small charts plugin -->
+	<script src="js/jquery.easy-pie-chart.min.js"></script>
+	<!-- charts plugin -->
+	<script src="js/jquery.flot.min.js"></script>
+	<!-- pie charts plugin -->
+	<script src="js/jquery.flot.pie.min.js"></script>
+	<!-- bar charts plugin -->
+	<script src="js/jquery.flot.bar.order.min.js"></script>
+	<!-- charts resizable plugin -->
+	<script src="js/jquery.flot.resize.min.js"></script>
+
 	<style type="text/css">
 		.style-label { text-align: right !important;}
 		.style-controls { margin-left:40% !important; }
@@ -82,6 +96,17 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 						<? require_once('_inc_log.php'); ?>
 					</div>
 				</form>
+				<div class="span6">
+						<div class="box">
+							<div class="box-head">
+								<i class="icon-bar-chart"></i>
+								<span>Line chart</span>
+							</div>
+							<div class="box-body">
+								<div class="flot-line"></div>
+							</div>
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>
