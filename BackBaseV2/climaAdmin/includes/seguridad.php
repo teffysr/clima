@@ -14,6 +14,7 @@ $PERMISOS = array(
 	6 => 'Productos',
 	7 => 'Estaciones',
 	8 => 'Porcentajes',
+	9 => 'Relacion',
 );
 
 function tiene_permiso($area) {

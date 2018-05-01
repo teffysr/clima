@@ -33,7 +33,7 @@ cargar('Maxima_precipitacion_en_30min_mm');
 cargar('Maxima_velocidad_del_viento_km_h');
 cargar('Tensión_de_vapor_media_hPa');
 cargar('Temperatura_media_del_suelo_a_10cm_de_profundidad_C');
-
+cargar('id');
 $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('id',0)));
 ?>
 <!doctype html>
@@ -77,11 +77,8 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 									<div class="control-group">
 										<label for="urlfield" class="control-label style-label">Estacion</label>
 										<div class="controls style-controls" >
-											<select name="estacion_id">
-												<?foreach ($db->iterate("SELECT * FROM estacion") as $estaciones) {
-												?><option value="<?=$estaciones->id?>"><?=$estaciones->nombre?></option>
-												<?}?>
-											</select>
+											<input type="hidden" name="estacion_id" value="<?=$id?>">
+											<label><?=$db->fetchOne("SELECT nombre FROM estacion WHERE id = '{$id}' ")?></label>
 										</div>
 									</div>
 									<? require_once('porcentajes_inputs.php'); ?>									
@@ -96,17 +93,6 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 						<? require_once('_inc_log.php'); ?>
 					</div>
 				</form>
-				<div class="span6">
-						<div class="box">
-							<div class="box-head">
-								<i class="icon-bar-chart"></i>
-								<span>Line chart</span>
-							</div>
-							<div class="box-body">
-								<div class="flot-line"></div>
-							</div>
-						</div>
-					</div>
 			</div>
 		</div>
 	</div>

@@ -19,6 +19,11 @@
 				<a href="porcentajes_listado.php"><i class="icon-file icon-white"></i><span>Porcentajes</span></a>
 			</li>
 		<? } ?>
+		<? if (tiene_permiso('Relacion')) { ?>
+			<li>
+				<a href="relacion_editar.php"><i class="icon-file icon-white"></i><span>Relacion</span></a>
+			</li>
+		<? } ?>
 		<? if (tiene_permiso('Categorias') || tiene_permiso('Productos')) { ?>
 			<li>
 				<a href="#"><i class="icon-gift icon-white"></i><span>Productos</span></a>

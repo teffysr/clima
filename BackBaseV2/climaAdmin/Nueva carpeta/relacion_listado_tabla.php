@@ -8,8 +8,8 @@
 	</thead>
 	<tbody>
 		<?
-		$queryTotal = "SELECT COUNT(*) AS total FROM estacion WHERE eliminado = 0";
-		$query = "SELECT * FROM estacion WHERE eliminado = 0";
+		$queryTotal = "SELECT COUNT(*) AS total FROM ".TABLA." WHERE eliminado = 0";
+		$query = "SELECT * FROM ".TABLA." WHERE eliminado = 0";
 
 		cargar('pagina',1);
 		$total = $db->fetchOne($queryTotal); 
@@ -24,7 +24,7 @@
 			?>
 			<tr>
 				<td><a href="<?=$link?>">
-					<?=$row->nombre; ?>
+					<?=$db->fetchOne("SELECT nombre FROM estacion where id = '{$row->estacion_id}' "); ?>
 				</a></td>
 				<td><a href="<?=$link?>"><i class="icon-bar-chart"><span  style="font-style: italic;"> Ver valores</span></i></a></td>
 				<td>#</td>

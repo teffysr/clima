@@ -12,6 +12,8 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 <!doctype html>
 <html>
 <head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 	<? include_once("_inc_head.php");?>
 	<script type="text/javascript">
 	function updateTable(action,id,page) {
@@ -41,6 +43,7 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 		<div id="content">
 			<div class="container-fluid" id="content-area">
 				<form class='form-horizontal form-bordered form-validate' method="POST" id="<?=PAGINA_ACTUAL;?>" action="<?=PAGINA_ACTUAL;?>_grabar.php" enctype="multipart/form-data">
+					<?/**********************************************/?>
 					<div class="row-fluid">
 						<div class="span12">
 							<div class="box">
@@ -187,7 +190,7 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 													<td>Distribucion</td>
 													<td></td>
 													<td></td>
-													<td></td>
+													<td><?#echo stats_cdf_normal(22.6, $rowDatos->Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C, $rowDatos->Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C, 1); ?></td>
 													<td></td>
 													<td></td>
 													<td></td>
@@ -233,10 +236,47 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 						</div>
 						
 					</div>
+
+					<div class="row-fluid">
+						<div class="span12">
+							<div class="span6">
+								<canvas id="myChart" width="100" height="100"></canvas>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 	<? require_once("_inc_bottom.php"); ?>
+	<script>
+		var ctx = document.getElementById("myChart");
+		var myChart = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: [1,2,3,4,5,6,7],
+		        datasets: [{
+		            label: '# of Votes',
+		            data: [1, 3, 6, 7, 6, 3,1],
+		            backgroundColor: [
+		                'rgba(255, 159, 64, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255, 159, 64, 1)'
+		            ],
+		            borderWidth: 1
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+	</script>
 </body>
 </html>
