@@ -10,7 +10,6 @@ cargar('id',0);
 //cargar('Fecha');
 cargar('estacion_id',0);
 /*
-
 /****************************************************************************************************/
 	cargar('Precipitacion_de_0_24_hs_mm_V1');
 	cargar('Precipitacion_de_0_24_hs_mm_V2');
@@ -22,187 +21,279 @@ cargar('estacion_id',0);
 		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Precipitacion_de_0_24_hs_mm' ");
 	}
 /****************************************************************************************************/
-	cargar('Precipitacion_como_dia_pluviometrico_mm_V1');
-	cargar('Precipitacion_como_dia_pluviometrico_mm_V2');
-	$sql =" SET columna = 'Precipitacion_como_dia_pluviometrico_mm_', valor_a = '{$Precipitacion_como_dia_pluviometrico_mm_V1}', valor_b = '{$Precipitacion_como_dia_pluviometrico_mm_V2}'";
+	cargar('Temperatura_Abrigo_150cm_V1');
+	cargar('Temperatura_Abrigo_150cm_V2');
+	$sql =" SET columna = 'Temperatura_Abrigo_150cm', valor_a = '{$Temperatura_Abrigo_150cm_V1}', valor_b = '{$Temperatura_Abrigo_150cm_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Precipitacion_como_dia_pluviometrico_mm_' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Abrigo_150cm' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Precipitacion_como_dia_pluviometrico_mm_' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Abrigo_150cm' ");
 	}
 /****************************************************************************************************/
-	cargar('Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V1');
-	cargar('Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V2');
-	$sql =" SET columna = 'Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C',valor_a = '{$Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V1}', valor_b = '{$Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V2}'";
+	cargar('Unidades_Frio_V1');
+	cargar('Unidades_Frio_V2');
+	$sql =" SET columna = 'Unidades_Frio',valor_a = '{$Unidades_Frio_V1}', valor_b = '{$Unidades_Frio_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Unidades_Frio' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Unidades_Frio' ");
 	}
 /****************************************************************************************************/
-	cargar('Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V1');
-	cargar('Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V2');
-	$sql =" SET columna = 'Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C',valor_a = '{$Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V1}', valor_b = '{$Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C_V2}'";
+	cargar('Horas_Frio_V1');
+	cargar('Horas_Frio_V2');
+	$sql =" SET columna = 'Horas_Frio',valor_a = '{$Horas_Frio_V1}', valor_b = '{$Horas_Frio_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Horas_Frio' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Horas_Frio' ");
 	}
 /****************************************************************************************************/
-	cargar('Humedad_relativa_media_porcentaje_V1');
-	cargar('Humedad_relativa_media_porcentaje_V2');
-	$sql =" SET columna = 'Humedad_relativa_media_porcentaje' , valor_a = '{$Humedad_relativa_media_porcentaje_V1}', valor_b = '{$Humedad_relativa_media_porcentaje_V2}'";
+	cargar('Radiacion_Global_V1');
+	cargar('Radiacion_Global_V2');
+	$sql =" SET columna = 'Radiacion_Global' , valor_a = '{$Radiacion_Global_V1}', valor_b = '{$Radiacion_Global_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Humedad_relativa_media_porcentaje' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Radiacion_Global' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Humedad_relativa_media_porcentaje' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Radiacion_Global' ");
 	}
 /****************************************************************************************************/
-	cargar('Humedad_relativa_8_14_20_porcentaje_V1');
-	cargar('Humedad_relativa_8_14_20_porcentaje_V2');
-	$sql =" SET columna = 'Humedad_relativa_8_14_20_porcentaje',valor_a = '{$Humedad_relativa_8_14_20_porcentaje_V1}', valor_b = '{$Humedad_relativa_8_14_20_porcentaje_V2}'";
+	cargar('Velocidad_Viento_1000cm_Media_V1');
+	cargar('Velocidad_Viento_1000cm_Media_V2');
+	$sql =" SET columna = 'Velocidad_Viento_1000cm_Media',valor_a = '{$Velocidad_Viento_1000cm_Media_V1}', valor_b = '{$Velocidad_Viento_1000cm_Media_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Humedad_relativa_8_14_20_porcentaje' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Velocidad_Viento_1000cm_Media' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Humedad_relativa_8_14_20_porcentaje' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Velocidad_Viento_1000cm_Media' ");
 	}
 /****************************************************************************************************/
-	cargar('Velocidad_media_del_viento_a_2m_km_h_V1');
-	cargar('Velocidad_media_del_viento_a_2m_km_h_V2');
-	$sql =" SET columna = 'Velocidad_media_del_viento_a_2m_km_h', valor_a = '{$Velocidad_media_del_viento_a_2m_km_h_V1}', valor_b = '{$Velocidad_media_del_viento_a_2m_km_h_V2}'";
+	cargar('Velocidad_Viento_200cm_Media_V1');
+	cargar('Velocidad_Viento_200cm_Media_V2');
+	$sql =" SET columna = 'Velocidad_Viento_200cm_Media', valor_a = '{$Velocidad_Viento_200cm_Media_V1}', valor_b = '{$Velocidad_Viento_200cm_Media_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Velocidad_media_del_viento_a_2m_km_h' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Velocidad_Viento_200cm_Media' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Velocidad_media_del_viento_a_2m_km_h' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Velocidad_Viento_200cm_Media' ");
 	}
 /****************************************************************************************************/
-	cargar('Direccion_prevalente_del_viento_a_2m_PC_V1');
-	cargar('Direccion_prevalente_del_viento_a_2m_PC_V2');
-	$sql =" SET columna = 'Direccion_prevalente_del_viento_a_2m_PC',  valor_a = '{$Direccion_prevalente_del_viento_a_2m_PC_V1}', valor_b = '{$Direccion_prevalente_del_viento_a_2m_PC_V2}'";
+	cargar('Duracion_Follaje_Mojado_V1');
+	cargar('Duracion_Follaje_Mojado_V2');
+	$sql =" SET columna = 'Duracion_Follaje_Mojado',  valor_a = '{$Duracion_Follaje_Mojado_V1}', valor_b = '{$Duracion_Follaje_Mojado_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Direccion_prevalente_del_viento_a_2m_PC' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Duracion_Follaje_Mojado' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Direccion_prevalente_del_viento_a_2m_PC' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Duracion_Follaje_Mojado' ");
 	}
 /****************************************************************************************************/
-	cargar('Horas_de_Frio_h_V1');
-	cargar('Horas_de_Frio_h_V2');
-	$sql =" SET columna = 'Horas_de_Frio_h', valor_a = '{$Horas_de_Frio_h_V1}', valor_b = '{$Horas_de_Frio_h_V2}'";
+	cargar('Rocio_Medio_V1');
+	cargar('Rocio_Medio_V2');
+	$sql =" SET columna = 'Rocio_Medio', valor_a = '{$Rocio_Medio_V1}', valor_b = '{$Rocio_Medio_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Horas_de_Frio_h' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Rocio_Medio' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Horas_de_Frio_h' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Rocio_Medio' ");
 	}
 /****************************************************************************************************/
-	cargar('Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C_V1');
-	cargar('Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C_V2');
-	$sql =" SET columna = 'Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C', valor_a = '{$Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C_V1}', valor_b = '{$Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C_V2}'";
+	cargar('Humedad_Media_8_14_20_V1');
+	cargar('Humedad_Media_8_14_20_V2');
+	$sql =" SET columna = 'Humedad_Media_8_14_20', valor_a = '{$Humedad_Media_8_14_20_V1}', valor_b = '{$Humedad_Media_8_14_20_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Humedad_Media_8_14_20' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Humedad_Media_8_14_20' ");
 	}
 /****************************************************************************************************/
-	cargar('Punto_de_rocío_medio_C_V1');
-	cargar('Punto_de_rocío_medio_C_V2');
-	$sql =" SET columna = 'Punto_de_rocío_medio_C', valor_a = '{$Punto_de_rocío_medio_C_V1}', valor_b = '{$Punto_de_rocío_medio_C_V2}'";
+	cargar('Humedad_Media_V1');
+	cargar('Humedad_Media_V2');
+	$sql =" SET columna = 'Humedad_Media', valor_a = '{$Humedad_Media_V1}', valor_b = '{$Humedad_Media_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Punto_de_rocío_medio_C' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Humedad_Media' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Punto_de_rocío_medio_C' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Humedad_Media' ");
 	}
 /****************************************************************************************************/
-	cargar('Direccion_prevalente_del_viento_a_10m_altura_PC_V1');
-	cargar('Direccion_prevalente_del_viento_a_10m_altura_PC_V2');
-	$sql =" SET columna = 'Direccion_prevalente_del_viento_a_10m_altura_PC', valor_a = '{$Direccion_prevalente_del_viento_a_10m_altura_PC_V1}', valor_b = '{$Direccion_prevalente_del_viento_a_10m_altura_PC_V2}'";
+	cargar('Tesion_Vapor_Media_V1');
+	cargar('Tesion_Vapor_Media_V2');
+	$sql =" SET columna = 'Tesion_Vapor_Media', valor_a = '{$Tesion_Vapor_Media_V1}', valor_b = '{$Tesion_Vapor_Media_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Direccion_prevalente_del_viento_a_10m_altura_PC' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Tesion_Vapor_Media' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Direccion_prevalente_del_viento_a_10m_altura_PC' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Tesion_Vapor_Media' ");
 	}
 /****************************************************************************************************/
-	cargar('Velocidad_media_del_viento_a_10m_km_h_V1');
-	cargar('Velocidad_media_del_viento_a_10m_km_h_V2');
-	$sql =" SET columna = 'Velocidad_media_del_viento_a_10m_km_h', valor_a = '{$Velocidad_media_del_viento_a_10m_km_h_V1}', valor_b = '{$Velocidad_media_del_viento_a_10m_km_h_V2}'";
+	cargar('Heliofania_Relativa_V1');
+	cargar('Heliofania_Relativa_V2');
+	$sql =" SET columna = 'Heliofania_Relativa', valor_a = '{$Heliofania_Relativa_V1}', valor_b = '{$Heliofania_Relativa_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Velocidad_media_del_viento_a_10m_km_h' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Heliofania_Relativa' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Velocidad_media_del_viento_a_10m_km_h' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Heliofania_Relativa' ");
 	}
 /****************************************************************************************************/
-	cargar('Maxima_precipitacion_en_30min_mm_V2');
-	cargar('Maxima_precipitacion_en_30min_mm_V1');
-	$sql =" SET columna = 'Maxima_precipitacion_en_30min_mm', valor_a = '{$Maxima_precipitacion_en_30min_mm_V1}', valor_b = '{$Maxima_precipitacion_en_30min_mm_V2}'";
+	cargar('Heliofania_Efectiva_V2');
+	cargar('Heliofania_Efectiva_V1');
+	$sql =" SET columna = 'Heliofania_Efectiva', valor_a = '{$Heliofania_Efectiva_V1}', valor_b = '{$Heliofania_Efectiva_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Maxima_precipitacion_en_30min_mm' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Heliofania_Efectiva' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Maxima_precipitacion_en_30min_mm' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Heliofania_Efectiva' ");
 	}
 /****************************************************************************************************/
-	cargar('Maxima_velocidad_del_viento_km_h_V1');
-	cargar('Maxima_velocidad_del_viento_km_h_V2');
-	$sql =" SET columna = 'Maxima_velocidad_del_viento_km_h', valor_a = '{$Maxima_velocidad_del_viento_km_h_V1}', valor_b = '{$Maxima_velocidad_del_viento_km_h_V2}'";
+	cargar('Precipitacion_Maxima_30minutos_V1');
+	cargar('Precipitacion_Maxima_30minutos_V2');
+	$sql =" SET columna = 'Precipitacion_Maxima_30minutos', valor_a = '{$Precipitacion_Maxima_30minutos_V1}', valor_b = '{$Precipitacion_Maxima_30minutos_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Maxima_velocidad_del_viento_km_h' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Precipitacion_Maxima_30minutos' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Maxima_velocidad_del_viento_km_h' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Precipitacion_Maxima_30minutos' ");
 	}
 /****************************************************************************************************/
-	cargar('Tensión_de_vapor_media_hPa_V1');
-	cargar('Tensión_de_vapor_media_hPa_V2');
-	$sql =" SET columna = 'Tensión_de_vapor_media_hPa', valor_a = '{$Tensión_de_vapor_media_hPa_V1}', valor_b = '{$Tensión_de_vapor_media_hPa_V2}'";
+	cargar('Precipitacion_Cronologica_V1');
+	cargar('Precipitacion_Cronologica_V2');
+	$sql =" SET columna = 'Precipitacion_Cronologica', valor_a = '{$Precipitacion_Cronologica_V1}', valor_b = '{$Precipitacion_Cronologica_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Tensión_de_vapor_media_hPa' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Precipitacion_Cronologica' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Tensión_de_vapor_media_hPa' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Precipitacion_Cronologica' ");
 	}
 /****************************************************************************************************/
-	cargar('Temperatura_media_del_suelo_a_10cm_de_profundidad_C_V1');
-	cargar('Temperatura_media_del_suelo_a_10cm_de_profundidad_C_V2');
-	$sql =" SET columna = 'Temperatura_media_del_suelo_a_10cm_de_profundidad_C', valor_a = '{$Temperatura_media_del_suelo_a_10cm_de_profundidad_C_V1}', valor_b = '{$Temperatura_media_del_suelo_a_10cm_de_profundidad_C_V2}'";
+	cargar('Precipitacion_Pluviometrica_V1');
+	cargar('Precipitacion_Pluviometrica_V2');
+	$sql =" SET columna = 'Precipitacion_Pluviometrica', valor_a = '{$Precipitacion_Pluviometrica_V1}', valor_b = '{$Precipitacion_Pluviometrica_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_media_del_suelo_a_10cm_de_profundidad_C' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Precipitacion_Pluviometrica' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_media_del_suelo_a_10cm_de_profundidad_C' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Precipitacion_Pluviometrica' ");
 	}
 /****************************************************************************************************/
-	cargar('Unidades_de_Frio_h_V1');
-	cargar('Unidades_de_Frio_h_V2');
-	$sql =" SET columna = 'Unidades_de_Frio_h', valor_a = '{$Unidades_de_Frio_h_V1}', valor_b = '{$Unidades_de_Frio_h_V2}'";
+	cargar('Humedad_Suelo_V1');
+	cargar('Humedad_Suelo_V2');
+	$sql =" SET columna = 'Humedad_Suelo', valor_a = '{$Humedad_Suelo_V1}', valor_b = '{$Humedad_Suelo_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Unidades_de_Frio_h' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Humedad_Suelo' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Unidades_de_Frio_h' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Humedad_Suelo' ");
 	}
 /****************************************************************************************************/
-	cargar('promedio_anual_V1');
-	cargar('promedio_anual_V2');
-	$sql =" SET  columna = 'promedio_anual', valor_a = '{$promedio_anual_V1}', valor_b = '{$promedio_anual_V2}'";
+	cargar('Temperatura_Intemperie_150cm_Minima_V1');
+	cargar('Temperatura_Intemperie_150cm_Minima_V2');
+	$sql =" SET  columna = 'Temperatura_Intemperie_150cm_Minima', valor_a = '{$Temperatura_Intemperie_150cm_Minima_V1}', valor_b = '{$Temperatura_Intemperie_150cm_Minima_V2}'";
 
-	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'promedio_anual' ")) {
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Intemperie_150cm_Minima' ")) {
 		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
 	} else {
-		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'promedio_anual' ");
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Intemperie_150cm_Minima' ");
 	}
 
+/****************************************************************************************************/
+	cargar('Temperatura_Inte_5cm_V1');
+	cargar('Temperatura_Inte_5cm_V2');
+	$sql =" SET  columna = 'Temperatura_Inte_5cm', valor_a = '{$Temperatura_Inte_5cm_V1}', valor_b = '{$Temperatura_Inte_5cm_V2}'";
 
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Inte_5cm' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Inte_5cm' ");
+	}
+/****************************************************************************************************/
+	cargar('Temperatura_Suelo_10cm_Media_V1');
+	cargar('Temperatura_Suelo_10cm_Media_V2');
+	$sql =" SET  columna = 'Temperatura_Suelo_10cm_Media', valor_a = '{$Temperatura_Suelo_10cm_Media_V1}', valor_b = '{$Temperatura_Suelo_10cm_Media_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Suelo_10cm_Media' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Suelo_10cm_Media' ");
+	}
+/****************************************************************************************************/
+	cargar('Temperatura_Suelo_5cm_Media_V1');
+	cargar('Temperatura_Suelo_5cm_Media_V2');
+	$sql =" SET  columna = 'Temperatura_Suelo_5cm_Media', valor_a = '{$Temperatura_Suelo_5cm_Media_V1}', valor_b = '{$Temperatura_Suelo_5cm_Media_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Suelo_5cm_Media' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Suelo_5cm_Media' ");
+	}
+/****************************************************************************************************/
+	cargar('Temperatura_Intemperie_50cm_Minima_V1');
+	cargar('Temperatura_Intemperie_50cm_Minima_V2');
+	$sql =" SET  columna = 'Temperatura_Intemperie_50cm_Minima', valor_a = '{$Temperatura_Intemperie_50cm_Minima_V1}', valor_b = '{$Temperatura_Intemperie_50cm_Minima_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Intemperie_50cm_Minima' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Intemperie_50cm_Minima' ");
+	}
+/****************************************************************************************************/
+	cargar('Temperatura_Intemperie_5cm_Minima_V1');
+	cargar('Temperatura_Intemperie_5cm_Minima_V2');
+	$sql =" SET  columna = 'Temperatura_Intemperie_5cm_Minima', valor_a = '{$Temperatura_Intemperie_5cm_Minima_V1}', valor_b = '{$Temperatura_Intemperie_5cm_Minima_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Intemperie_5cm_Minima' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Intemperie_5cm_Minima' ");
+	}
+/****************************************************************************************************/
+	cargar('Temperatura_Abrigo_150cm_Maxima_V1');
+	cargar('Temperatura_Abrigo_150cm_Maxima_V2');
+	$sql =" SET  columna = 'Temperatura_Abrigo_150cm_Maxima', valor_a = '{$Temperatura_Abrigo_150cm_Maxima_V1}', valor_b = '{$Temperatura_Abrigo_150cm_Maxima_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Abrigo_150cm_Maxima' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Abrigo_150cm_Maxima' ");
+	}
+
+/****************************************************************************************************/
+	cargar('Temperatura_Abrigo_150cm_Minima_V1');
+	cargar('Temperatura_Abrigo_150cm_Minima_V2');
+	$sql =" SET  columna = 'Temperatura_Abrigo_150cm_Minima', valor_a = '{$Temperatura_Abrigo_150cm_Minima_V1}', valor_b = '{$Temperatura_Abrigo_150cm_Minima_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Temperatura_Abrigo_150cm_Minima' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Temperatura_Abrigo_150cm_Minima' ");
+	}	
+
+/****************************************************************************************************/
+	cargar('Presion_Media_V1');
+	cargar('Presion_Media_V2');
+	$sql =" SET  columna = 'Presion_Media', valor_a = '{$Presion_Media_V1}', valor_b = '{$Presion_Media_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Presion_Media' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Presion_Media' ");
+	}	
+
+/****************************************************************************************************/
+	cargar('Velocidad_Viento_Maxima_V1');
+	cargar('Velocidad_Viento_Maxima_V2');
+	$sql =" SET  columna = 'Velocidad_Viento_Maxima', valor_a = '{$Velocidad_Viento_Maxima_V1}', valor_b = '{$Velocidad_Viento_Maxima_V2}'";
+
+	if (!$id || !$db->fetchOne("SELECT * FROM valor_default where estacion_id = '{$estacion_id}' and columna = 'Velocidad_Viento_Maxima' ")) {
+		$id = $db->insert("INSERT INTO valor_default ".$sql.", estacion_id = '{$estacion_id}' ");
+	} else {
+		$db->update("UPDATE valor_default ".$sql." WHERE estacion_id = '{$estacion_id}' and columna = 'Velocidad_Viento_Maxima' ");
+	}	
 /****************************************************************************************************/
 
 $administrador = $_SESSION['administradorId']; $fecha = time();

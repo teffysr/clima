@@ -58,7 +58,7 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 										<div class="controls style-controls" >
 											<select name="estacion_id" class="estacion_id">
 												<option>Seleccione...</option>
-												<?foreach ($db->iterate("SELECT * FROM estacion") as $estaciones) {
+												<?foreach ($db->iterate("SELECT * FROM estacion ORDER BY nombre") as $estaciones) {
 												?><option value="<?=$estaciones->id?>"><?=$estaciones->nombre?></option>
 												<?}?>
 											</select>
@@ -80,26 +80,35 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 								</div>
 								<div class="box-body">
 									<div class="span12 text-center">
-										<select name="factor_1" class="factor">
+										<select name="factor_1" class="factor0">
 											<option>Seleccione...</option>
-											<option value = 'Precipitacion_de_0_24_hs_mm' >Precipitacion_de_0_24_hs_mm </option>
-											<option value = 'Precipitacion_como_dia_pluviometrico_mm_' >Precipitacion_como_dia_pluviometrico_mm_ </option>
-											<option value = 'Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C' >Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C </option>
-											<option value = 'Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C' >Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C </option>
-											<option value = 'Humedad_relativa_media_porcentaje' >Humedad_relativa_media_porcentaje </option>
-											<option value = 'Humedad_relativa_8_14_20_porcentaje' >Humedad_relativa_8_14_20_porcentaje </option>
-											<option value = 'Velocidad_media_del_viento_a_2m_km_h' >Velocidad_media_del_viento_a_2m_km_h </option>
-											<option value = 'Direccion_prevalente_del_viento_a_2m_PC' >Direccion_prevalente_del_viento_a_2m_PC </option>
-											<option value = 'Unidades_de_Frio_h' >Unidades_de_Frio_h </option>
-											<option value = 'Horas_de_Frio_h' >Horas_de_Frio_h </option>
-											<option value = 'Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C' >Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C </option>
-											<option value = 'Punto_de_rocío_medio_C' >Punto_de_rocío_medio_C </option>
-											<option value = 'Direccion_prevalente_del_viento_a_10m_altura_PC' >Direccion_prevalente_del_viento_a_10m_altura_PC </option>
-											<option value = 'Velocidad_media_del_viento_a_10m_km_h' >Velocidad_media_del_viento_a_10m_km_h </option>
-											<option value = 'Maxima_precipitacion_en_30min_mm' >Maxima_precipitacion_en_30min_mm </option>
-											<option value = 'Maxima_velocidad_del_viento_km_h' >Maxima_velocidad_del_viento_km_h </option>
-											<option value = 'Tensión_de_vapor_media_hPa' >Tensión_de_vapor_media_hPa </option>
-											<option value = 'Temperatura_media_del_suelo_a_10cm_de_profundidad_C' >Temperatura_media_del_suelo_a_10cm_de_profundidad_C </option>
+											<option value = 'Temperatura_Abrigo_150cm' >Temperatura_Abrigo_150cm</option>
+											<option value = 'Temperatura_Abrigo_150cm_Maxima' >Temperatura_Abrigo_150cm_Maxima</option>
+											<option value = 'Temperatura_Abrigo_150cm_Minima' >Temperatura_Abrigo_150cm_Minima</option>
+											<option value = 'Temperatura_Intemperie_5cm_Minima' >Temperatura_Intemperie_5cm_Minima</option>
+											<option value = 'Temperatura_Intemperie_50cm_Minima' >Temperatura_Intemperie_50cm_Minima</option>
+											<option value = 'Temperatura_Suelo_5cm_Media' >Temperatura_Suelo_5cm_Media</option>
+											<option value = 'Temperatura_Suelo_10cm_Media' >Temperatura_Suelo_10cm_Media</option>
+											<option value = 'Temperatura_Inte_5cm' >Temperatura_Inte_5cm</option>
+											<option value = 'Temperatura_Intemperie_150cm_Minima' >Temperatura_Intemperie_150cm_Minima</option>
+											<option value = 'Humedad_Suelo' >Humedad_Suelo</option>
+											<option value = 'Precipitacion_Pluviometrica' >Precipitacion_Pluviometrica</option>
+											<option value = 'Precipitacion_Cronologica' >Precipitacion_Cronologica</option>
+											<option value = 'Precipitacion_Maxima_30minutos' >Precipitacion_Maxima_30minutos</option>
+											<option value = 'Heliofania_Efectiva' >Heliofania_Efectiva</option>
+											<option value = 'Heliofania_Relativa' >Heliofania_Relativa</option>
+											<option value = 'Tesion_Vapor_Media' >Tesion_Vapor_Media</option>
+											<option value = 'Humedad_Media' >Humedad_Media</option>
+											<option value = 'Humedad_Media_8_14_20' >Humedad_Media_8_14_20</option>
+											<option value = 'Rocio_Medio' >Rocio_Medio</option>
+											<option value = 'Duracion_Follaje_Mojado' >Duracion_Follaje_Mojado</option>
+											<option value = 'Velocidad_Viento_200cm_Media' >Velocidad_Viento_200cm_Media</option>
+											<option value = 'Velocidad_Viento_1000cm_Media' >Velocidad_Viento_1000cm_Media</option>
+											<option value = 'Velocidad_Viento_Maxima' >Velocidad_Viento_Maxima</option>
+											<option value = 'Presion_Media' >Presion_Media</option>
+											<option value = 'Radiacion_Global' >Radiacion_Global</option>
+											<option value = 'Horas_Frio' >Horas_Frio</option>
+											<option value = 'Unidades_Frio' >Unidades_Frio</option>
 										</select>
 									</div>
 									<div class="span12 text-center resultados">
@@ -114,26 +123,36 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 								</div>
 								<div class="box-body">
 									<div class="span12 text-center" >
-										<select name="estacion_id" class="factor">
+										<select name="estacion_id" class="factor1">
 											<option>Seleccione...</option>
-											<option value = 'Precipitacion_de_0_24_hs_mm' >Precipitacion_de_0_24_hs_mm </option>
-											<option value = 'Precipitacion_como_dia_pluviometrico_mm_' >Precipitacion_como_dia_pluviometrico_mm_ </option>
-											<option value = 'Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C' >Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C </option>
-											<option value = 'Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C' >Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C </option>
-											<option value = 'Humedad_relativa_media_porcentaje' >Humedad_relativa_media_porcentaje </option>
-											<option value = 'Humedad_relativa_8_14_20_porcentaje' >Humedad_relativa_8_14_20_porcentaje </option>
-											<option value = 'Velocidad_media_del_viento_a_2m_km_h' >Velocidad_media_del_viento_a_2m_km_h </option>
-											<option value = 'Direccion_prevalente_del_viento_a_2m_PC' >Direccion_prevalente_del_viento_a_2m_PC </option>
-											<option value = 'Unidades_de_Frio_h' >Unidades_de_Frio_h </option>
-											<option value = 'Horas_de_Frio_h' >Horas_de_Frio_h </option>
-											<option value = 'Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C' >Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C </option>
-											<option value = 'Punto_de_rocío_medio_C' >Punto_de_rocío_medio_C </option>
-											<option value = 'Direccion_prevalente_del_viento_a_10m_altura_PC' >Direccion_prevalente_del_viento_a_10m_altura_PC </option>
-											<option value = 'Velocidad_media_del_viento_a_10m_km_h' >Velocidad_media_del_viento_a_10m_km_h </option>
-											<option value = 'Maxima_precipitacion_en_30min_mm' >Maxima_precipitacion_en_30min_mm </option>
-											<option value = 'Maxima_velocidad_del_viento_km_h' >Maxima_velocidad_del_viento_km_h </option>
-											<option value = 'Tensión_de_vapor_media_hPa' >Tensión_de_vapor_media_hPa </option>
-											<option value = 'Temperatura_media_del_suelo_a_10cm_de_profundidad_C' >Temperatura_media_del_suelo_a_10cm_de_profundidad_C </option>
+											
+											<option value = 'Temperatura_Abrigo_150cm' >Temperatura_Abrigo_150cm</option>
+											<option value = 'Temperatura_Abrigo_150cm_Maxima' >Temperatura_Abrigo_150cm_Maxima</option>
+											<option value = 'Temperatura_Abrigo_150cm_Minima' >Temperatura_Abrigo_150cm_Minima</option>
+											<option value = 'Temperatura_Intemperie_5cm_Minima' >Temperatura_Intemperie_5cm_Minima</option>
+											<option value = 'Temperatura_Intemperie_50cm_Minima' >Temperatura_Intemperie_50cm_Minima</option>
+											<option value = 'Temperatura_Suelo_5cm_Media' >Temperatura_Suelo_5cm_Media</option>
+											<option value = 'Temperatura_Suelo_10cm_Media' >Temperatura_Suelo_10cm_Media</option>
+											<option value = 'Temperatura_Inte_5cm' >Temperatura_Inte_5cm</option>
+											<option value = 'Temperatura_Intemperie_150cm_Minima' >Temperatura_Intemperie_150cm_Minima</option>
+											<option value = 'Humedad_Suelo' >Humedad_Suelo</option>
+											<option value = 'Precipitacion_Pluviometrica' >Precipitacion_Pluviometrica</option>
+											<option value = 'Precipitacion_Cronologica' >Precipitacion_Cronologica</option>
+											<option value = 'Precipitacion_Maxima_30minutos' >Precipitacion_Maxima_30minutos</option>
+											<option value = 'Heliofania_Efectiva' >Heliofania_Efectiva</option>
+											<option value = 'Heliofania_Relativa' >Heliofania_Relativa</option>
+											<option value = 'Tesion_Vapor_Media' >Tesion_Vapor_Media</option>
+											<option value = 'Humedad_Media' >Humedad_Media</option>
+											<option value = 'Humedad_Media_8_14_20' >Humedad_Media_8_14_20</option>
+											<option value = 'Rocio_Medio' >Rocio_Medio</option>
+											<option value = 'Duracion_Follaje_Mojado' >Duracion_Follaje_Mojado</option>
+											<option value = 'Velocidad_Viento_200cm_Media' >Velocidad_Viento_200cm_Media</option>
+											<option value = 'Velocidad_Viento_1000cm_Media' >Velocidad_Viento_1000cm_Media</option>
+											<option value = 'Velocidad_Viento_Maxima' >Velocidad_Viento_Maxima</option>
+											<option value = 'Presion_Media' >Presion_Media</option>
+											<option value = 'Radiacion_Global' >Radiacion_Global</option>
+											<option value = 'Horas_Frio' >Horas_Frio</option>
+											<option value = 'Unidades_Frio' >Unidades_Frio</option>
 										</select>
 									</div>
 									<div class="span12 text-center resultados">
@@ -142,43 +161,34 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 								</div>
 							</div>
 						</div>
+						<!--/******************************/-->
 						<div class="span12 box tabla-probabilidad">
 							<div class="box-head">
 								<span>Tabla de Probabilidad</span>
 							</div>
 							<div class="box-body probabilidad">
-								<table class="table table-bordered">
+								<input type="button" name="tabla_prob" value="Generar Tabla" class="btn btn-primary tabla_prob">
+								<br>
+								<br>
+								<table class="table table-bordered tabla_prob_result hide">
 									<thead>
 										<tr>
 											<th>P(+x|U1,U2)</th>
-											<th>U1+</th>
-											<th>U1°</th>
-											<th>U1-</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>U2+</td>
-											<td>xxx</td>
-											<td>xxx</td>
-											<td>xxx</td>
-										</tr>
-										<tr>
-											<td>U2-</td>
-											<td>xxx</td>
-											<td>xxx</td>
-											<td>xxx</td>
-										</tr>
 									</tbody>
 								</table>
+
+								<input type="button" name="otra" value="Buscar otra Estación" class="btn btn-primary otra hide">
 								
 							</div>
 						</div>
 					</div>
 					<hr>
 					<div class="row-fluid">
-						<? require_once('_inc_botones.php'); ?>
-						<? require_once('_inc_log.php'); ?>
+						<?# require_once('_inc_botones.php'); ?>
+						<?# require_once('_inc_log.php'); ?>
 					</div>
 				</form>
 			</div>
@@ -190,7 +200,7 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 			$('.valores').removeClass('hide');
 		});
 
-		$('.factor').on('change', function(){
+		$('.factor0').on('change', function(){
 			var box = $(this).parents('.box-body');
 			var factor = $(this).val();
 			var estacion_id = $('.estacion_id').val();
@@ -202,14 +212,91 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 				  .done(function( data ) {
 				    var Json = jQuery.parseJSON(data);
 				    if(Json.count == 2){
-				    	html = "U+: "+Json.U1+"<br> U-: "+Json.U2+"<br> --";
+				    	html = "U&sup1;+: "+Json.U1+"\
+				    	<input type='hidden' name='U1[]' value='"+Json.U1.toFixed(2)+"' class ='U1' id='U&sup1;+' /> \
+				    	<br> U&sup1;-: "+Json.U2+"\
+				    	<input type='hidden' name='U1[]' value='"+Json.U2.toFixed(2)+"' class ='U1' id='U&sup1;-' /> \
+				    	<br> --";
 				    }else{
-				    	html = "U+: "+Json.U1+"<br> U°: "+Json.U2+"<br> U-: "+Json.U3;
+				    	html = "U&sup1;+: "+Json.U1+"\
+				    	<input type='hidden' name='U1[]' value='"+Json.U1.toFixed(2)+"' class ='U1' id='U&sup1;+' /> \
+				    	<br> U&sup1;°: "+Json.U2+"\
+				    	<input type='hidden' name='U1[]' value='"+Json.U2.toFixed(2)+"' class ='U1' id='U&sup1;°' /> \
+				    	<br> U&sup1;-: "+Json.U3+"\
+				    	<input type='hidden' name='U1[]' value='"+Json.U3.toFixed(2)+"' class ='U1' id='U&sup1;-' />";
 				    }
 				    $(box).find('.resultados').html(html);
 
 				  });
 		});
+
+		$('.factor1').on('change', function(){
+			var box = $(this).parents('.box-body');
+			var factor = $(this).val();
+			var estacion_id = $('.estacion_id').val();
+			$.ajax({
+				  method: "POST",
+				  url: "factor.php",
+				  data: {estacion_id: estacion_id, factor: factor }
+				})
+				  .done(function( data ) {
+				    var Json = jQuery.parseJSON(data);
+				    if(Json.count == 2){
+				    	html = "U&sup2;+: "+Json.U1+"\
+				    	<input type='hidden' name='U2[]' value='"+Json.U1.toFixed(2)+"' class ='U2' id='U&sup2;+' /> \
+				    	<br> U&sup2;-: "+Json.U2+"\
+				    	<input type='hidden' name='U2[]' value='"+Json.U2.toFixed(2)+"' class ='U2' id='U&sup2;-' /> \
+				    	<br> --";
+				    }else{
+				    	html = "U&sup2;+: "+Json.U1+"\
+				    	<input type='hidden' name='U2[]' value='"+Json.U1.toFixed(2)+"' class ='U2' id='U&sup2;+' /> \
+				    	<br> U&sup2;°: "+Json.U2+"\
+				    	<input type='hidden' name='U2[]' value='"+Json.U2.toFixed(2)+"' class ='U2' id='U&sup2;°' /> \
+				    	<br> U&sup2;-: "+Json.U3+"\
+				    	<input type='hidden' name='U2[]' value='"+Json.U3.toFixed(2)+"' class ='U2' id='U&sup2;-' />";
+				    }
+				    $(box).find('.resultados').html(html);
+
+				  });
+		});
+
+		$('.tabla_prob').on('click', function(){
+			$('.tabla_prob_result').removeClass('hide');
+			var u1 = $('.U1');
+			var u2 = $('.U2');
+			for (var i = 0; i < u1.length; i++) {
+				var id = $(u1[i]).attr('id');
+				$('.tabla_prob_result').find('thead tr').append('<th>');
+				$('.tabla_prob_result').find('thead tr th:last').html(id);
+			}
+
+			for (var i = 0; i < u2.length; i++) {
+				var id2 = $(u2[i]).attr('id');
+				$('.tabla_prob_result').find('tbody').append('<tr>');
+				$('.tabla_prob_result').find('tbody tr:last').append('<td>');
+				$('.tabla_prob_result').find('tbody tr:last td').html(id2);
+
+				for (var j = 0; j < u1.length; j++) {
+					var valor = (parseFloat($(u1[j]).val())+parseFloat($(u2[i]).val()))/2;
+					console.log(valor + $(u1[j]).attr('id'));
+					$('.tabla_prob_result').find('tbody tr:last').append('<td>');
+					$('.tabla_prob_result').find('tbody tr:last td:last').html(valor.toFixed(2));
+				}
+			}
+
+			$('.estacion_id').prop('disabled','disabled');
+			$('.factor1').prop('disabled','disabled');
+			$('.factor0').prop('disabled','disabled');
+			$('.tabla_prob').next('br').remove();
+			$('.tabla_prob').hide();
+			$('.tabla_prob').next('br').remove();
+			$('.otra').removeClass('hide');
+			
+		});
+
+		$('.otra').on('click', function(){
+			location.reload();
+		})
 	</script>
 </body>
 </html>

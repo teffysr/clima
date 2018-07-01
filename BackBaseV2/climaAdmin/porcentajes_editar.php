@@ -12,27 +12,37 @@ if (cargar('id') && cargar('borrar')) {
 		exit("<script>location.href='".PAGINA_ACTUAL."_listado.php';</script>"); 
 }
 
-cargar('estacion_id');
-cargar('promedio_anual');
+cargar('id_estacion');
 cargar('Fecha');
-cargar('Precipitacion_de_0_24_hs_mm');
-cargar('Precipitacion_como_dia_pluviometrico_mm_');
-cargar('Temperatura_Maxima_del_aire_en_abrigo_a_1_5_m_de_altura_C');
-cargar('Temperatura_minima_del_aire_en_abrigo_a_1_5_m_de_altura_C');
-cargar('Humedad_relativa_media_porcentaje');
-cargar('Humedad_relativa_8_14_20_porcentaje');
-cargar('Velocidad_media_del_viento_a_2m_km_h');
-cargar('Direccion_prevalente_del_viento_a_2m_PC');
-cargar('Unidades_de_Frio_h');
-cargar('Horas_de_Frio_h');
-cargar('Temperatura_Media_del_aire_en_abrigo_a_1_5_m_de_altura_C');
-cargar('Punto_de_rocío_medio_C');
-cargar('Direccion_prevalente_del_viento_a_10m_altura_PC');
-cargar('Velocidad_media_del_viento_a_10m_km_h');
-cargar('Maxima_precipitacion_en_30min_mm');
-cargar('Maxima_velocidad_del_viento_km_h');
-cargar('Tensión_de_vapor_media_hPa');
-cargar('Temperatura_media_del_suelo_a_10cm_de_profundidad_C');
+cargar('Temperatura_Abrigo_150cm');
+cargar('Temperatura_Abrigo_150cm_Maxima');
+cargar('Temperatura_Abrigo_150cm_Minima');
+cargar('Temperatura_Intemperie_5cm_Minima');
+cargar('Temperatura_Intemperie_50cm_Minima');
+cargar('Temperatura_Suelo_5cm_Media');
+cargar('Temperatura_Suelo_10cm_Media');
+cargar('Temperatura_Inte_5cm');
+cargar('Temperatura_Intemperie_150cm_Minima');
+cargar('Humedad_Suelo');
+cargar('Precipitacion_Pluviometrica');
+cargar('Precipitacion_Cronologica');
+cargar('Precipitacion_Maxima_30minutos');
+cargar('Heliofania_Efectiva');
+cargar('Heliofania_Relativa');
+cargar('Tesion_Vapor_Media');
+cargar('Humedad_Media');
+cargar('Humedad_Media_8_14_20');
+cargar('Rocio_Medio');
+cargar('Duracion_Follaje_Mojado');
+cargar('Velocidad_Viento_200cm_Media');
+cargar('Direccion_Viento_200cm');
+cargar('Velocidad_Viento_1000cm_Media');
+cargar('Direccion_Viento_1000cm');
+cargar('Velocidad_Viento_Maxima');
+cargar('Presion_Media');
+cargar('Radiacion_Global');
+cargar('Horas_Frio');
+cargar('Unidades_Frio');
 cargar('id');
 $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('id',0)));
 ?>
@@ -56,7 +66,7 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 
 	<style type="text/css">
 		.style-label { text-align: right !important;}
-		.style-controls { margin-left:40% !important; }
+		.style-controls { margin-left:30% !important; }
 	</style>
 </head>
 <body data-layout="fixed">
@@ -81,7 +91,7 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 											<label><?=$db->fetchOne("SELECT nombre FROM estacion WHERE id = '{$id}' ")?></label>
 										</div>
 									</div>
-									<? require_once('porcentajes_inputs.php'); ?>									
+									<? require_once('porcentajes_inputs.php'); ?>				
 								</div>
 							</div>
 						</div>

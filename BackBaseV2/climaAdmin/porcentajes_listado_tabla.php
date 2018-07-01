@@ -9,14 +9,14 @@
 	<tbody>
 		<?
 		$queryTotal = "SELECT COUNT(*) AS total FROM estacion WHERE eliminado = 0";
-		$query = "SELECT * FROM estacion WHERE eliminado = 0";
+		$query = "SELECT * FROM estacion  WHERE eliminado = 0";
 
 		cargar('pagina',1);
 		$total = $db->fetchOne($queryTotal); 
 		$paginado = $db->fetchOne("SELECT valor FROM configuracion WHERE entidad = 'listados/cantidad'");
 		$paginas = ceil($total/$paginado)>0 ? ceil($total/$paginado) : 1;
 
-		$query .= " ORDER BY id";
+		$query .= " ORDER BY nombre";
 		$query .= " LIMIT ".(($pagina-1)*$paginado).",".$paginado;
 
 		foreach ($db->iterate($query) as $row) { 
