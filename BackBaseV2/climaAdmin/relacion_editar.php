@@ -123,7 +123,7 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 								</div>
 								<div class="box-body">
 									<div class="span12 text-center" >
-										<select name="estacion_id" class="factor1">
+										<select name="factor_2" class="factor1">
 											<option>Seleccione...</option>
 											
 											<option value = 'Temperatura_Abrigo_150cm' >Temperatura_Abrigo_150cm</option>
@@ -179,6 +179,13 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 									<tbody>
 									</tbody>
 								</table>
+								
+								<input type="button" name="calcularY" value="calcularY" class="btn btn-primary calcularY">
+
+								<div class="f_0"></div>
+								<div class="f_0_z"></div>
+								<div class="f_1"></div>
+								<div class="f_1_z"></div>
 
 								<input type="button" name="otra" value="Buscar otra Estación" class="btn btn-primary otra hide">
 								
@@ -290,13 +297,52 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 			$('.tabla_prob').next('br').remove();
 			$('.tabla_prob').hide();
 			$('.tabla_prob').next('br').remove();
-			$('.otra').removeClass('hide');
+			
 			
 		});
 
 		$('.otra').on('click', function(){
 			location.reload();
 		})
+
+///CALCULAR Y
+		$('.calcularY').on('click', function(){
+			var box = $(this).parents('.box-body');
+			var factor0 = $('.factor0').val();
+			var factor1 = $('.factor1').val();
+			var estacion_id = $('.estacion_id').val();
+			$.ajax({
+				  method: "POST",
+				  url: "calculoY.php",
+				  data: {estacion: estacion_id, factor1: factor1, factor0: factor0 }
+				})
+				  .done(function( data ) {
+				    var Json = jQuery.parseJSON(data);
+
+				    	console.log("10 ---- 65");
+						
+						console.log('media y desviacion factor:' +factor0);				    
+				    	console.log(Json.media0);
+				    	console.log(Json.desviacion0)
+
+				    	var z0 = (20- parseFloat(Json.media0))/parseFloat(Json.desviacion0) ;
+
+				    	$('.f_0').html("<br>"+factor0+"<br>Valor Media: "+Json.media0+"<br> Valor Desviación: "+Json.desviacion0);
+				    	$('.f_0_z').html("Valor Z1: "+z0);
+
+				    	console.log('media y desviacion facto:'+ factor1);
+				    	console.log(Json.media1)
+				    	console.log(Json.desviacion1)
+
+				    	var z1 = (65- parseFloat(Json.media1))/parseFloat(Json.desviacion1) ;
+				    	$('.f_1').html("<br>"+factor1+"<br>Valor Media: "+Json.media1+"<br> Valor Desviación: "+Json.desviacion1);
+				    	$('.f_1_z').html("Valor Z2: "+z1);
+
+				    	$('.otra').removeClass('hide');
+				   //['desviacion0'=>$desviacion0 ,'media0'=>$media0,'desviacion1'=>$desviacion1 ,'media1'=>$media1];
+
+				  });
+		});
 	</script>
 </body>
 </html>

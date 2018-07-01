@@ -21,7 +21,7 @@
 		<? } ?>
 		<? if (tiene_permiso('Relacion')) { ?>
 			<li>
-				<a href="relacion_editar.php"><i class="icon-file icon-white"></i><span>Relacion</span></a>
+				<a href="relacion_editar.php"><i class="icon-file icon-white"></i><span>Calculos</span></a>
 			</li>
 		<? } ?>
 		<? if (tiene_permiso('Categorias') || tiene_permiso('Productos')) { ?>
