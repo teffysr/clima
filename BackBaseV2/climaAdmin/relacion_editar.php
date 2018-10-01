@@ -180,13 +180,18 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 									</tbody>
 								</table>
 								
+								<input type="text" name="valorUno" class="valorUno" value="">
+								<input type="text" name="valorDos" class="valorDos" value="">
 								<input type="button" name="calcularY" value="calcularY" class="btn btn-primary calcularY">
 
 								<div class="f_0"></div>
 								<div class="f_0_z"></div>
 								<div class="f_1"></div>
 								<div class="f_1_z"></div>
+								<input type="hidden" name="zeta1" class="zeta1" value="0">
+								<input type="hidden" name="zeta2" class="zeta2" value="0">
 
+								<input type="button" name="area_curva_normal" value="Calcular valores en la tabla" class="btn btn-primary area_curva_normal hide">
 								<input type="button" name="otra" value="Buscar otra Estación" class="btn btn-primary otra hide">
 								
 							</div>
@@ -319,30 +324,53 @@ $row = $db->fetchOneRow(sprintf("SELECT * FROM ".TABLA." WHERE id = %d",cargar('
 				  .done(function( data ) {
 				    var Json = jQuery.parseJSON(data);
 
-				    	console.log("10 ---- 65");
+				    	console.log("20 ---- 65");
 						
 						console.log('media y desviacion factor:' +factor0);				    
 				    	console.log(Json.media0);
 				    	console.log(Json.desviacion0)
 
-				    	var z0 = (20- parseFloat(Json.media0))/parseFloat(Json.desviacion0) ;
+				    	var valorUno = $('.valorUno').val();
+
+				    	var z0 = (valorUno - parseFloat(Json.media0))/parseFloat(Json.desviacion0) ;
 
 				    	$('.f_0').html("<br>"+factor0+"<br>Valor Media: "+Json.media0+"<br> Valor Desviación: "+Json.desviacion0);
-				    	$('.f_0_z').html("Valor Z1: "+z0);
+				    	$('.f_0_z').html("Valor Z1: "+z0.toFixed(2));
+				    	$('.zeta1').val(z0.toFixed(2));
 
 				    	console.log('media y desviacion facto:'+ factor1);
 				    	console.log(Json.media1)
 				    	console.log(Json.desviacion1)
 
-				    	var z1 = (65- parseFloat(Json.media1))/parseFloat(Json.desviacion1) ;
-				    	$('.f_1').html("<br>"+factor1+"<br>Valor Media: "+Json.media1+"<br> Valor Desviación: "+Json.desviacion1);
-				    	$('.f_1_z').html("Valor Z2: "+z1);
+				    	var valorDos = $('.valorDos').val();
 
+				    	var z1 = (valorDos- parseFloat(Json.media1))/parseFloat(Json.desviacion1) ;
+				    	$('.f_1').html("<br>"+factor1+"<br>Valor Media: "+Json.media1+"<br> Valor Desviación: "+Json.desviacion1);
+				    	$('.f_1_z').html("Valor Z2: "+z1.toFixed(2));
+				    	$('.zeta2').val(z1.toFixed(2));
+
+				    	$('.area_curva_normal').removeClass('hide');
 				    	$('.otra').removeClass('hide');
+
 				   //['desviacion0'=>$desviacion0 ,'media0'=>$media0,'desviacion1'=>$desviacion1 ,'media1'=>$media1];
 
 				  });
 		});
+
+		$('.area_curva_normal').on('click', function(){
+			var z1 = $('.zeta1').val();
+			var z2 = $('.zeta2').val();
+
+			$.ajax({
+				  method: "POST",
+				  url: "area_curva_normal.php",
+				  data: {z1: z1, z2: z2}
+				})
+				  .done(function( data ) {
+				  		alert(data);
+				  });
+				});
+		
 	</script>
 </body>
 </html>

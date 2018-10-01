@@ -8,10 +8,6 @@ $PERMISOS = array(
 	/* MODULOS */
 	1 => 'Administradores',
 	2 => 'Configuraciones',
-	3 => 'Noticias',
-	4 => 'Slideshows',
-	5 => 'Categorias',
-	6 => 'Productos',
 	7 => 'Estaciones',
 	8 => 'Porcentajes',
 	9 => 'Relacion',
